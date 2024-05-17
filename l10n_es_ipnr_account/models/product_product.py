@@ -12,6 +12,4 @@ class ProductProduct(models.Model):
     @api.depends("ipnr_subject", "categ_id", "categ_id.ipnr_subject")
     def _compute_ipnr_has_amount(self):
         for rec in self:
-            rec.ipnr_has_amount = rec.ipnr_subject == "yes" or (
-                rec.ipnr_subject == "category" and rec.categ_id.ipnr_subject
-            )
+            rec.ipnr_has_amount = rec.is_plastic_tax

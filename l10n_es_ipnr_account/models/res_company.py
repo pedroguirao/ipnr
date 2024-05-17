@@ -8,12 +8,20 @@ from odoo.exceptions import ValidationError
 class ResCompany(models.Model):
     _inherit = "res.company"
 
-    ipnr_enable = fields.Boolean()
+    ipnr_enable = fields.Boolean(compute='check_ipnr_enable', store = True)
     ipnr_date_from = fields.Date(help="IPNR can only be applied from this date.")
     ipnr_show_in_reports = fields.Boolean(
         string="Show detailed IPNR amount in report lines",
         help="If active, IPNR amount is shown in reports.",
     )
+
+    @api.depends('company_plastic_acquirer', 'company_plastic_manufacturer')
+    def check_ipnr_enable(self):
+        for record in self:
+            ipnr_enable = False
+            if record.company_plastic_acquirer or record.company_plastic_manufacturer:
+                ipnr_enable = True
+            record.ipnr_enable = ipnr_enable
 
     @api.constrains("ipnr_enable", "ipnr_date_from")
     def _check_pnr_date(self):

@@ -9,7 +9,7 @@
     "author": "Pedro guirao, Antonio Cánovas, Odoo Community Association (OCA)",
     "category": "Accounting",
     "website": "https://github.com/OCA/l10n-spain",
-    "depends": ["account"],
+    "depends": ["account", 'l10n_es_aeat_mod592'],
     "data": [
         "data/data.xml",
         "data/exception_templates.xml",

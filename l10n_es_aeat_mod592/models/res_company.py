@@ -13,3 +13,4 @@ class ResCompany(models.Model):
     company_plastic_manufacturer = fields.Boolean(
         string="Plastic Manufacturer", default=False
     )
+
