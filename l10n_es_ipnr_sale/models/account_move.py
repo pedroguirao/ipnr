@@ -18,7 +18,7 @@ class AccountMove(models.Model):
     def modify_ipnr_line(self, ipnr_line, lines):
         weight = sum(
             line.product_uom_id._compute_quantity(line.quantity, line.product_id.uom_id)
-            * line.product_id.weight
+            * line.product_id.plastic_weight_non_recyclable
             for line in lines
         )
         ipnr_line.write({"quantity": weight})
