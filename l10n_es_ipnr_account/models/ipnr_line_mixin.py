@@ -31,5 +31,5 @@ class IpnrLineMixin(models.AbstractModel):
                     rec.product_id.uom_id,
                 )
                 weight = quantity * rec.product_id.plastic_weight_non_recyclable
-                ipnr_amount = plastic_weight_non_recyclable * price
+                ipnr_amount = weight * price
             rec.ipnr_amount = ipnr_amount
