@@ -16,10 +16,13 @@
             eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
         />
     </record>
+
+    <!-- QUITADO HASTA QUE SE MIGRE A V17
     <record id="l10n_es_aeat_mod592_report_rule" model="ir.rule">
         <field name="name">AEAT Mod 592</field>
         <field ref="model_l10n_es_aeat_mod592_report" name="model_id" />
         <field eval="True" name="global" />
         <field name="domain_force">[('company_id', 'in', [False] + company_ids)]</field>
     </record>
+    -->
 </odoo>
