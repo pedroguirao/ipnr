@@ -23,7 +23,8 @@ class ResCompany(models.Model):
                 ipnr_enable = True
             record.ipnr_enable = ipnr_enable
 
-    @api.constrains("ipnr_enable", "ipnr_date_from")
+# Quitado para poder instalar los módulos, habría que poner como valor "False" de aeat592 el comprar plástico:
+#    @api.constrains("ipnr_enable", "ipnr_date_from")
     def _check_pnr_date(self):
         if self.filtered(lambda a: a.ipnr_enable and not a.ipnr_date_from):
             raise ValidationError(
