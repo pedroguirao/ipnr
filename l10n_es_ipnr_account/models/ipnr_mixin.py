@@ -34,7 +34,9 @@ class IpnrMixin(models.AbstractModel):
 
     def _compute_is_ipnr(self):
         for rec in self:
-            rec.is_ipnr = rec.is_plastic_tax
+            rec.is_ipnr = rec.company_id.is_plastic_tax and (
+                not rec.fiscal_position_id or rec.fiscal_position_id.ipnr_subject
+            )
 
     def _compute_ipnr_is_date(self):
         for rec in self:
