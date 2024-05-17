@@ -123,7 +123,7 @@ class IpnrMixin(models.AbstractModel):
                 line[line._ipnr_secondary_unit_fields["qty_field"]],
                 line.product_id.uom_id,
             )
-            * line.product_id.weight
+            * line.product_id.plastic_weight_non_recyclable
             for line in ipnr_lines
         )
         ipnr_vals.update(

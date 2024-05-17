@@ -30,6 +30,6 @@ class IpnrLineMixin(models.AbstractModel):
                     rec[rec._ipnr_secondary_unit_fields["qty_field"]],
                     rec.product_id.uom_id,
                 )
-                weight = quantity * rec.product_id.weight
-                ipnr_amount = weight * price
+                weight = quantity * rec.product_id.plastic_weight_non_recyclable
+                ipnr_amount = plastic_weight_non_recyclable * price
             rec.ipnr_amount = ipnr_amount
