@@ -6,18 +6,9 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="l10n_es_aeat_mod592.product_template_form_view_inherit_l10n_es_aeat_mod592"/>
         <field name="arch" type="xml">
-            <!--<field name="categ_id" position="before">
-                <field name="ipnr_subject" />
-            </field>-->
-          <!--  <xpath expr="//form[@name='Product Template']/sheet[@name='product_form']/notebook[1]/page[@name='inventory']/group[@name='inventory']/group[@name='group_lots_and_weight']/label[3]" position="replace"/>-->
-            <xpath expr="//field[@name='is_plastic_tax']" position="attributes">
-               <attribute name="invisible">1</attribute>
-            </xpath>
-             <xpath expr="//div[@name='volume']" position="after">
-                <label for="ipnr_subject" />
-                <div class="o_row" name="volume">
-                    <field name="ipnr_subject" />
-                </div>
+            <xpath expr="//field[@name='is_plastic_tax']" position="replace">
+                <field name="ipnr_subject"/>
+                <field name="is_plastic_tax" readonly="1"/>
             </xpath>
         </field>
     </record>

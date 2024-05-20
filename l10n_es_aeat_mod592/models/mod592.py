@@ -226,6 +226,21 @@ class L10nEsAeatmod592Report(models.Model):
             ("location_dest_id.usage", "=", "supplier"),
             ("origin_returned_move_id", "!=", False),
         ]
+
+        # AMPLIACIONES ANTONIO CÁNOVAS 20/05/24:
+
+        # Extracomunitary Adquisitions
+        domain_concept_5 = [
+            ("location_id.usage", "=", "supplier"),
+            ("picking_id.partner_id.plastic_document_type", "=", "3"),
+        ]
+        domain_concept_6 = [
+            ("location_id.usage", "=", "supplier"),
+            ("picking_id.partner_id.plastic_document_type", "=", "1"),
+            ("picking_id.partner_id.state_id", 'in', ['TF','GC'])
+        ]
+
+
         domain = expression.AND(
             [
                 domain_base,
@@ -235,6 +250,8 @@ class L10nEsAeatmod592Report(models.Model):
                         domain_concept_2,
                         domain_concept_3,
                         domain_concept_4,
+                        domain_concept_5,
+                        domain_concept_6,
                     ]
                 ),
             ]
@@ -248,18 +265,18 @@ class L10nEsAeatmod592Report(models.Model):
         Temporaly retunf a domain that return no records as we dont have
         this casuistic yet (l10n_es_aeat_mod592_mrp for example).
         """
-        false_domain = [("id", "<", 0)]
+        #false_domain = [("id", "<", 0)]
         # Code below is only a idea od what we could do whithout develop
         # strong traceability of manofactured quants.
-        # domain_base = [
-        #     ("date", ">=", self.date_start),
-        #     ("date", "<=", self.date_end),
-        #     ("state", "=", "done"),
-        #     ("picking_id.partner_id", "!=", False),
-        #     ("company_id", "=", self.company_id.id),
-        #     ("product_id.is_plastic_tax", "=", True),
-        #     ("product_id.tax_plastic_type", "in", ('manufacturer', 'both')),
-        # ]
+        domain_base = [
+            ("date", ">=", self.date_start),
+            ("date", "<=", self.date_end),
+            ("state", "=", "done"),
+            ("picking_id.partner_id", "!=", False),
+            ("company_id", "=", self.company_id.id),
+            ("product_id.is_plastic_tax", "=", True),
+            ("product_id.tax_plastic_type", "in", ('manufacturer', 'both')),
+        ]
         # # Initial Existence
         # # If first sale, locate all existence
         # # domain_concept_1 = [
@@ -269,15 +286,18 @@ class L10nEsAeatmod592Report(models.Model):
         # # domain_concept_2 = [
         # #     ("location_dest_id.usage", "=", "production"),
         # # ]
-        # # Return products for destruction, or re-manufacturation
-        # domain_concept_3 = [
-        #     ("location_dest_id.scrap_location", "=", True),
-        # ]
-        # # Sales to non spanish customers
-        # domain_concept_4 = [
-        #     ("location_dest_id.usage", "=", 'customer'),
-        #     ("picking_id.partner_id.plastic_document_type", "=", '1'),
-        # ]
+
+        # Return products for destruction, or re-manufacturation
+        domain_concept_3 = [
+            ("location_dest_id.scrap_location", "=", True),
+        ]
+        # # Sales to (non) spanish customers
+        domain_concept_4 = [
+            ("location_dest_id.usage", "=", 'customer'),
+            ("picking_id.partner_id.plastic_document_type", "=", '1'),
+            ("picking_id.partner_id.state_id", "not in", ['GC','TF']),
+        ]
+
         # # ? Another destructions
         # # domain_concept_5 = [
         # #     ("location_dest_id.scrap_location", "=", True),
@@ -286,11 +306,11 @@ class L10nEsAeatmod592Report(models.Model):
         # #     domain_base, expression.OR([
         # #         domain_concept_1, domain_concept_2,
         # #         domain_concept_3, domain_concept_4])])
-        # domain = expression.AND([
-        #     domain_base, expression.OR([
-        #         domain_concept_3, domain_concept_4])])
-        # # return domain
-        return false_domain
+        domain = expression.AND([
+            domain_base, expression.OR([
+                domain_concept_3, domain_concept_4])])
+        return domain
+        # # return false_domain
 
     def _get_acquirer_moves(self):
         """Returns the stock moves of the acquirer."""
