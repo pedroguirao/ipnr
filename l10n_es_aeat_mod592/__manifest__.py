@@ -17,7 +17,7 @@
         "security/ir.model.access.csv",
         "views/product_template_views.xml",
         "views/res_partner_views.xml",
-        "views/mod592_views.xml",
+        #"views/mod592_views.xml",
         #"views/mod592_acquirer_line_views.xml",
         #"views/mod592_manufacturer_line_views.xml",
         "views/res_company_views.xml",
