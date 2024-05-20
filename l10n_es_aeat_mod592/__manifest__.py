@@ -12,7 +12,7 @@
     "license": "AGPL-3",
     "depends": ["l10n_es_aeat", "report_xlsx", "report_csv", "stock"],
     "data": [
-        #"data/ir_sequence_data.xml",
+        "data/ir_sequence_data.xml",
         "security/aeat_security.xml",
         #"security/ir.model.access.csv",
         "views/product_template_views.xml",
