@@ -21,29 +21,29 @@
                     string="Plastic Tax Parameters"
                     col="4"
                     colspan="4"
-                    attrs="{'invisible': [('is_plastic_tax', '=', False)]}"
+                    invisible="is_plastic_tax == False"
                 >
                     <field
                         name="tax_plastic_type"
-                        attrs="{'required': [('is_plastic_tax', '=', True)]}"
+                        required="is_plastic_tax  == True"
                     />
                     <field
                         name="plastic_tax_weight"
-                        attrs="{'required': [('is_plastic_tax', '=', True)]}"
+                        required="is_plastic_tax  == True"
                     />
                     <field
                         name="plastic_weight_non_recyclable"
-                        attrs="{'required': [('is_plastic_tax', '=', True)]}"
+                        required="is_plastic_tax  == True"
                     />
                     <field name="plastic_type_key" />
                     <field
                         name="plastic_tax_regime_manufacturer"
-                        attrs="{'invisible': [('tax_plastic_type', '=', 'acquirer')]}"
+                        invisible="tax_plastic_type == 'acquirer'"
                         groups="l10n_es_aeat_mod592.group_mod592_manufacturer"
                     />
                     <field
                         name="plastic_tax_regime_acquirer"
-                        attrs="{'invisible': [('tax_plastic_type', '=', 'manufacturer')]}"
+                        invisible="tax_plastic_type == 'manufacturer'"
                         groups="l10n_es_aeat_mod592.group_mod592_acquirer"
                     />
                 </group>

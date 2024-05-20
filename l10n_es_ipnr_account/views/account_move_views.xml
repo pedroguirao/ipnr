@@ -10,7 +10,8 @@
                 <field name="ipnr_company" invisible="1" />
                 <field
                     name="is_ipnr"
-                    attrs="{'readonly': [('state', '!=', 'draft')], 'invisible': [('ipnr_company', '=', False)]}"
+                    readonly="state != 'draft'"
+                    invisible="ipnr_company == False"
                 />
             </xpath>
             <xpath

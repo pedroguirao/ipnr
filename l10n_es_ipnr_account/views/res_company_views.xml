@@ -12,11 +12,12 @@
                         <field name="ipnr_enable" />
                         <field
                             name="ipnr_date_from"
-                            attrs="{'invisible': [('ipnr_enable', '=', False)], 'required': [('ipnr_date_from', '=', True)]}"
+                            invisible="ipnr_enable == False"
+                            required="ipnr_date_from ==  True"
                         />
                         <field
                             name="ipnr_show_in_reports"
-                            attrs="{'invisible': [('ipnr_enable', '=', False)]}"
+                            invisible="ipnr_enable == False"
                         />
                     </group>
                 </page>

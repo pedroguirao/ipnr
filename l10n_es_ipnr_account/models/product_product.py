@@ -12,4 +12,17 @@ class ProductProduct(models.Model):
     @api.depends("ipnr_subject", "categ_id", "categ_id.ipnr_subject")
     def _compute_ipnr_has_amount(self):
         for rec in self:
-            rec.ipnr_has_amount = rec.is_plastic_tax
+            rec.ipnr_has_amount = rec.ipnr_subject == "yes" or (
+                    rec.ipnr_subject == "category" and rec.categ_id.ipnr_subject
+            )
+
+    is_plastic_tax = fields.Boolean(string="Is plastic tax?", compute="_compute_is_plastic_tax", tracking=True)
+
+    @api.depends("ipnr_subject", "categ_id", "categ_id.ipnr_subject")
+    def _compute_is_plastic_tax(self):
+        for rec in self:
+            is_plastic_tax = False
+            if rec.ipnr_subject == "yes" or (
+                    rec.ipnr_subject == "category" and rec.categ_id.ipnr_subject):
+                is_plastic_tax = True
+            rec.is_plastic_tax = is_plastic_tax

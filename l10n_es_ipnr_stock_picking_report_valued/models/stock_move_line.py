@@ -37,7 +37,7 @@ class StockMoveLine(models.Model):
             quantity=qty,
         )
 
-    @api.depends("product_id", "date", "qty_done", "reserved_qty")
+    @api.depends("product_id", "date", "quantity")
     def _compute_ipnr_amount(self):
         for line in self:
             subtotal = 0.0
