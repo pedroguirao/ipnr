@@ -14,7 +14,7 @@
     "data": [
         "data/ir_sequence_data.xml",
         "security/aeat_security.xml",
-        #"security/ir.model.access.csv",
+        "security/ir.model.access.csv",
         "views/product_template_views.xml",
         "views/res_partner_views.xml",
         #"views/mod592_views.xml",
