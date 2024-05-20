@@ -52,7 +52,7 @@
                     string="Export CSV Manufacturer"
                     type="object"
                     icon="fa-share"
-                    attrs="{'invisible':['|', ('state', '!=', 'done'), ('total_manufacturer_entries', '=', 0)]}"
+                    invisible="state != 'done' or total_manufacturer_entries == 0"
                     groups="l10n_es_aeat_mod592.group_mod592_manufacturer"
                 />
                 <button
