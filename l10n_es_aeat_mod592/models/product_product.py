@@ -14,7 +14,6 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     is_plastic_tax = fields.Boolean(string="Is plastic tax?", tracking=True)
-
     tax_plastic_type = fields.Selection(
         selection=[
             ("manufacturer", _("Manufacturer")),

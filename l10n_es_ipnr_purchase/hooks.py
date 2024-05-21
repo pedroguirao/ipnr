@@ -5,8 +5,8 @@
 from odoo.tools import sql
 
 
-def pre_init_hook(env):
-    if not sql.column_exists(env.cr, "purchase_order", "is_ipnr"):
-        sql.create_column(env.cr, "purchase_order", "is_ipnr", "boolean")
-    if not sql.column_exists(env.cr, "purchase_order", "ipnr_is_date"):
-        sql.create_column(env.cr, "purchase_order", "ipnr_is_date", "boolean")
+def pre_init_hook(cr):
+    if not sql.column_exists(cr, "purchase_order", "is_ipnr"):
+        sql.create_column(cr, "purchase_order", "is_ipnr", "boolean")
+    if not sql.column_exists(cr, "purchase_order", "ipnr_is_date"):
+        sql.create_column(cr, "purchase_order", "ipnr_is_date", "boolean")

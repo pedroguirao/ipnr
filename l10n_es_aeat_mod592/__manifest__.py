@@ -5,16 +5,16 @@
 
 {
     "name": "AEAT modelo 592",
-    "version": "17.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Accounting",
     "author": "Tecnativa, Binhex System Solutions, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-spain",
     "license": "AGPL-3",
     "depends": ["l10n_es_aeat", "report_xlsx", "report_csv", "stock"],
     "data": [
-        "data/ir_sequence_data.xml",
+        #"data/ir_sequence_data.xml",
         "security/aeat_security.xml",
-        "security/ir.model.access.csv",
+        #"security/ir.model.access.csv",
         "views/product_template_views.xml",
         "views/res_partner_views.xml",
         #"views/mod592_views.xml",

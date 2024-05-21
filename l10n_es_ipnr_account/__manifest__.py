@@ -4,7 +4,7 @@
 {
     "name": "IPNR - Facturación",
     "summary": "Impuesto especial sobre los envases de plástico no reutilizables - Facturación",
-    "version": "17.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Pedro guirao, Antonio Cánovas, Odoo Community Association (OCA)",
     "category": "Accounting",

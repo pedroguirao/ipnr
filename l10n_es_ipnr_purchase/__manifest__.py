@@ -4,7 +4,7 @@
 {
     "name": "INPR - Compras",
     "summary": "Impuesto especial sobre los envases de plástico no reutilizables ESPAÑA - Compras",
-    "version": "17.0.1.0.1",
+    "version": "16.0.1.0.1",
     "license": "AGPL-3",
     "author": "Pedro Guirao, Odoo Community Association (OCA)",
     "category": "Sales",

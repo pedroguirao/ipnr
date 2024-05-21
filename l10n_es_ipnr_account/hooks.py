@@ -5,10 +5,10 @@
 from odoo.tools import sql
 
 
-def pre_init_hook(env):
-    if not sql.column_exists(env.cr, "account_move", "is_ipnr"):
-        sql.create_column(env.cr, "account_move", "is_ipnr", "boolean")
-    if not sql.column_exists(env.cr, "account_move", "ipnr_is_date"):
-        sql.create_column(env.cr, "account_move", "ipnr_is_date", "boolean")
-    if not sql.column_exists(env.cr, "product_product", "ipnr_has_amount"):
-        sql.create_column(env.cr, "product_product", "ipnr_has_amount", "boolean")
+def pre_init_hook(cr):
+    if not sql.column_exists(cr, "account_move", "is_ipnr"):
+        sql.create_column(cr, "account_move", "is_ipnr", "boolean")
+    if not sql.column_exists(cr, "account_move", "ipnr_is_date"):
+        sql.create_column(cr, "account_move", "ipnr_is_date", "boolean")
+    if not sql.column_exists(cr, "product_product", "ipnr_has_amount"):
+        sql.create_column(cr, "product_product", "ipnr_has_amount", "boolean")

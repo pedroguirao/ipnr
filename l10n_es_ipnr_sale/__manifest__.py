@@ -4,7 +4,7 @@
 {
     "name": "IPNR - Ventas",
     "summary": "Impuesto especial sobre los envases de plástico no reutilizables España - Ventas",
-    "version": "17.0.1.0.1",
+    "version": "16.0.1.0.1",
     "license": "AGPL-3",
     "author": "Sygel, Odoo Community Association (OCA)",
     "category": "Accounting",

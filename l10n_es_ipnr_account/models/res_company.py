@@ -9,7 +9,7 @@ class ResCompany(models.Model):
     _inherit = "res.company"
 
     ipnr_enable = fields.Boolean(compute='check_ipnr_enable', store = True)
-    ipnr_date_from = fields.Date(help="IPNR can only be applied from this date.", default='2023-01-01')
+    ipnr_date_from = fields.Date(help="IPNR can only be applied from this date.", default='01-01-2023')
     ipnr_show_in_reports = fields.Boolean(
         string="Show detailed IPNR amount in report lines",
         help="If active, IPNR amount is shown in reports.",
