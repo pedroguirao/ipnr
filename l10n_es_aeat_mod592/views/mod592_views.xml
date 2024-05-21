@@ -47,6 +47,10 @@
         <field name="arch" type="xml">
             <header position="inside">
                 <!-- MANUFACTURER -->
+                <field name="total_manufacturer_entries" invisible="1"/>
+                <field name="num_lines_acquirer" invisible="1"/>
+                     <field name="show_error_acquirer" invisible="1"/>
+
                 <button
                     name="export_csv_manufacturer"
                     string="Export CSV Manufacturer"

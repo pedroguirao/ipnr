@@ -35,7 +35,7 @@
                 <group>
                     <field
                         name="error_text"
-                        attrs="{'invisible': [('entries_ok', '=', True)]}"
+                        invisible="entries_ok == True"
                         class="text-danger"
                     />
                     <field name="entry_number" />
@@ -54,7 +54,7 @@
                     <field name="error_text" optional="show" />
                     <field
                         name="error_text"
-                        attrs="{'invisible': [('entries_ok', '=', True)]}"
+                        invisible="entries_ok == True"
                         optional="hide"
                     />
                     <field name="report_id" invisible="1" />

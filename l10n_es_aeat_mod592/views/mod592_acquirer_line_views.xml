@@ -51,7 +51,7 @@
                         <field name="entries_ok" invisible="1" />
                         <field
                             name="error_text"
-                            attrs="{'invisible': [('entries_ok', '=', True)]}"
+                            invisible="entries_ok == True"
                             class="text-danger"
                         />
                         <field name="report_id" invisible="1" />

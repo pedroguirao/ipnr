@@ -240,7 +240,6 @@ class L10nEsAeatmod592Report(models.Model):
             ("picking_id.partner_id.state_id", 'in', ['TF','GC'])
         ]
 
-
         domain = expression.AND(
             [
                 domain_base,
@@ -352,7 +351,7 @@ class L10nEsAeatmod592Report(models.Model):
                     else:
                         manufacturer_lines.append((0, 0, m_vals))
                 item.manufacturer_line_ids = manufacturer_lines
-        item.recompute()
+        #item.recompute()
         return res
 
     def button_recover(self):
